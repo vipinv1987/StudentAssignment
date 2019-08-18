@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 public interface AssignmentService {
     public AssignmentServiceResponse getAssignmentDetailsById(Long assignmentId);
     public void createAssignment(AssignmentServiceRequest assignmentServiceRequest);
-    public void updateAssignment();
-    public void deleteAssignmentById();
+    public void updateAssignment(AssignmentServiceRequest assignmentServiceRequest, Long assignmentId);
+    public void deleteAssignmentById(Long assignmntId);
 }

@@ -7,6 +7,15 @@ public class AssignmentWebRequest {
     private String assignmentName;
     private ArrayList<Student> students;
     private Integer marks;
+    private Student upDateStudent;
+
+    public Student getUpDateStudent() {
+        return upDateStudent;
+    }
+
+    public void setUpDateStudent(Student upDateStudent) {
+        this.upDateStudent = upDateStudent;
+    }
 
     public Long getAssignmentId() {
         return assignmentId;

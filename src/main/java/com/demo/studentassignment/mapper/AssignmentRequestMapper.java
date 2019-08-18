@@ -1,11 +1,11 @@
-package com.demo.studentassignment.coverter;
+package com.demo.studentassignment.mapper;
 
 import com.demo.studentassignment.model.AssignmentServiceRequest;
 import com.demo.studentassignment.model.AssignmentWebRequest;
 
 import java.util.function.Function;
 
-public class WebRequestToServiceMapper {
+public class AssignmentRequestMapper {
 
   public static Function<AssignmentWebRequest, AssignmentServiceRequest> createServiceRequest =
       new Function<AssignmentWebRequest, AssignmentServiceRequest>() {
@@ -18,4 +18,14 @@ public class WebRequestToServiceMapper {
           return assignmentServiceRequest;
         }
       };
+
+    public static Function<AssignmentWebRequest, AssignmentServiceRequest> updateServiceRequest =
+            new Function<AssignmentWebRequest, AssignmentServiceRequest>() {
+
+                public AssignmentServiceRequest apply(AssignmentWebRequest t) {
+                    AssignmentServiceRequest assignmentServiceRequest = new AssignmentServiceRequest();
+                    assignmentServiceRequest.setAssignmentName(t.getAssignmentName());
+                    return assignmentServiceRequest;
+                }
+            };
 }

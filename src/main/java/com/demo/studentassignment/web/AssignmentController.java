@@ -1,6 +1,6 @@
 package com.demo.studentassignment.web;
 
-import com.demo.studentassignment.coverter.WebRequestToServiceMapper;
+import com.demo.studentassignment.mapper.AssignmentRequestMapper;
 import com.demo.studentassignment.model.AssignmentServiceResponse;
 import com.demo.studentassignment.model.AssignmentWebRequest;
 import com.demo.studentassignment.service.AssignmentService;
@@ -31,7 +31,21 @@ public class AssignmentController {
   public HttpStatus createAssignment(@RequestBody AssignmentWebRequest assignmentWebRequest) {
     LOGGER.debug("Inside createAssignment Method");
     assignmentService.createAssignment(
-        WebRequestToServiceMapper.createServiceRequest.apply(assignmentWebRequest));
+        AssignmentRequestMapper.createServiceRequest.apply(assignmentWebRequest));
+    return HttpStatus.OK;
+  }
+
+  @PutMapping("/update/{id}")
+  public HttpStatus updateAssignment(@PathVariable (value = "id") Long assignmentId, @RequestBody AssignmentWebRequest assignmentWebRequest) {
+    LOGGER.debug("Inside createAssignment Method");
+    assignmentService.updateAssignment(AssignmentRequestMapper.updateServiceRequest.apply(assignmentWebRequest), assignmentId);
+    return HttpStatus.OK;
+  }
+
+  @DeleteMapping("/{id}")
+  public HttpStatus deleteAssignment(@PathVariable (value = "id") Long assignmentId) {
+    LOGGER.debug("Inside createAssignment Method");
+    assignmentService.deleteAssignmentById(assignmentId);
     return HttpStatus.OK;
   }
 }

@@ -1,5 +1,6 @@
 package com.demo.studentassignment.service;
 
+import com.demo.studentassignment.exception.ResourceNotFoundException;
 import com.demo.studentassignment.model.*;
 import com.demo.studentassignment.repo.AssignmentRepo;
 import com.demo.studentassignment.repo.AssignmentStudentRepo;
@@ -59,8 +60,19 @@ public class AssignmentServiceImpl implements AssignmentService {
   }
 
   @Override
-  public void updateAssignment() {}
+  public void updateAssignment(AssignmentServiceRequest assignmentServiceRequest, Long assignmntId) {
+    assignmentRepo.findById(assignmntId).map(assignmentEntity -> {
+      assignmentEntity.setAssignmentName(assignmentServiceRequest.getAssignmentName());
+      return assignmentRepo.save(assignmentEntity);
+    }).orElseThrow(()->new ResourceNotFoundException("Assignment " + assignmntId + " Not Found"));
+  }
 
   @Override
-  public void deleteAssignmentById() {}
+  public void deleteAssignmentById(Long assignmntId) {
+     assignmentRepo.findById(assignmntId).map(assignmentEntity -> {
+      assignmentRepo.delete(assignmentEntity);
+      return assignmentEntity;
+    }).orElseThrow(() -> new ResourceNotFoundException("Assignment " + assignmntId + " Not Found" ));
+
+  }
 }
