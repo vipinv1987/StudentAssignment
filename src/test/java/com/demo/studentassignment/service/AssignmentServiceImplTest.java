@@ -1,10 +1,8 @@
-package com.demo.studentmanagement.service;
+package com.demo.studentassignment.service;
 
 import com.demo.studentassignment.model.AssignmentEntity;
 import com.demo.studentassignment.model.AssignmentStudentEntity;
 import com.demo.studentassignment.repository.AssignmentRepository;
-import com.demo.studentassignment.service.AssignmentServiceImpl;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,9 +25,6 @@ public class AssignmentServiceImplTest {
   private Optional<AssignmentEntity> assignment;
 
   private AssignmentEntity assignmentEntity;
-
-  @Before
-  public void init() {}
 
   @Test
   public void getAssignmentDetailsByIdTest() {
