@@ -2,7 +2,7 @@ package com.demo.studentassignment.model;
 
 import java.util.ArrayList;
 
-public class AssignmentServiceRequest {
+public class AssignmentVoRequest {
     private Long assignmentId;
     private String assignmentName;
     private ArrayList<Student> students;
