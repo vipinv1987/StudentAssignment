@@ -6,7 +6,6 @@ public class AssignmentVoRequest {
     private Long assignmentId;
     private String assignmentName;
     private ArrayList<Student> students;
-    private Integer marks;
     private Student upDateStudent;
 
     public Student getUpDateStudent() {
@@ -41,11 +40,4 @@ public class AssignmentVoRequest {
         this.students = students;
     }
 
-    public Integer getMarks() {
-        return marks;
-    }
-
-    public void setMarks(Integer marks) {
-        this.marks = marks;
-    }
 }

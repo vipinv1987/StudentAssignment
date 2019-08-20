@@ -14,7 +14,6 @@ public class AssignmentRequestMapper {
           AssignmentVoRequest assignmentServiceRequest = new AssignmentVoRequest();
           assignmentServiceRequest.setAssignmentName(t.getAssignmentName());
           assignmentServiceRequest.setStudents(t.getStudents());
-          assignmentServiceRequest.setMarks(t.getMarks());
           return assignmentServiceRequest;
         }
       };
